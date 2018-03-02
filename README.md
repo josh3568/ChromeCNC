@@ -25,3 +25,7 @@
 * Run a small program with GCode commands
 * If i have time: convert characters into GCode commands (ie a generates code to write "a" on a piece of paper)
 */
+
+/* User interface reference
+* https://github.com/cncjs/cncjs/blob/master/README.md
+*/
