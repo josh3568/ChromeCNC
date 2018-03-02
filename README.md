@@ -1,7 +1,12 @@
 # ChromeControlledCNCMachine
-Control a 2 Axis robot by passing in GCode
+//Summary: Control a 2-Axis robot by passing in GCode or using a chrome browser
 
-/*Things I will learn from this project
+/*
+* Author of project: Josh Thompson
+* Kickoff date: 2018_0301
+*/ 
+
+/*Things I will learn from this project:
 * GitHub
 * Eclipse
 * Java Script
