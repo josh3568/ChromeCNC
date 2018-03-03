@@ -1,0 +1,73 @@
+Feel good guys, I took on all the headache figuring out how to do this...
+The following is a guide of installing the development software. Below is a list of software required to running Eclipse:
+
+1) Java RE
+2) MinGW
+3) Eclipse Neon
+4) CUTE
+5) Sloeber V4
+
+
+1) install Java RE
+Find your computer architecture:
+Goto Windows Explorer > right-click my computer > Properties > FInd system type. It should say if you have a 32 or 64 bit windows.
+
+Goto http://www.oracle.com/technetwork/java/javase/downloads/jre9-downloads-3848532.html and select the latest JRE version for your windows architecture
+Download the .exe file and not the .tar.gz file
+Run the downloaded application and follow the prompts
+
+2) Install MinGW
+I couldn't get teh mingw-get-setup.exe to work, but I was able to download the MinGW files manually here: https://sourceforge.net/projects/mingw/files/Installer/mingw-get/mingw-get-0.6.1-beta-20130910-1/
+Download mingw-get-0.6.1-mingw32-beta-20130910-1-bin.zip and extract. Your extracted folder should contain the folders: bin, include, lib, lib32, libexec, manual, share, and x86_64-w64-mingw32
+Rename the extracted "mingw-get-0.6.1-mingw32-beta-20130910-1-bin" folder to "MinGW" and paste into the C:\ drive
+(C:/MinGW)
+
+3) Install Eclipse Neon
+You'll have to decide on what version of Eclipse to use based on the software requirements of Sloeber V4 and CUTE. 
+Through some back and forth testing, I discovered you should use Eclipse Neon. Download it here: http://www.eclipse.org/downloads/packages/eclipse-ide-cc-developers/neon3
+Once downloaded, copy the "eclipse" folder into your C drive (C:/eclipse)
+
+4) Install CUTE
+CUTE is an Eclipse plug-in allowing the programmer to write unit tests
+The install guide is found here: http://www.cute-test.com/projects/cute/wiki/CUTE_Installation_and_System_Requirements
+Follow the steps found in "Installing CUTE Using the CUTE Updatesite" but use the following modifications:
+For step 3, use link http://www.cute-test.com/updatesite/neon instead of http://www.cute-test.com/updatesite/
+For step 4, download all items (select all check boxes). I ran into issues if the plug-in is only downloaded
+
+Follow the guide http://www.cute-test.com/projects/cute/wiki/Using_the_CUTE_Eclipse_Plug-in
+The Test.cpp should have all default code. All prompts should be default. You should get a red bar
+Change ASSERTM("start writing tests", false); to ASSERTM("start writing tests", true); and verify you get a green bar
+
+5) Install Sloeber V4
+Sloeber V4 is an Eclipse plug-in allowing you to download code to the Arduino
+Goto Help > Eclipse Marketplace > type in "arduino" in the search bar > Find "The Arduino Eclipse plugin named Sloeber V4" and select the install button
+Go through all prompts and accept that you do NOT have a verify signature. Restart eclipse
+http://eclipse.baeyens.it/how_to.shtml#/c1
+
+For some reason, the file > new project will become disabled. The workaround is to right-click in the project folder and select new > project
+
+6) Test an Arduino download
+Plug the Arduino into the computer, determine your COM port
+In Windows, goto Control panel > Device Manager > Ports > Make note of the Arduino COM port (mine is COM3)
+In Eclipse, goto arduino > new sketch > Use the default Platform folder > Populate the rest from your Arduino specs
+Paste the following code into .ino file from your newly created Arduino sketch
+Select upload button
+
+#include "Arduino.h"
+//The setup function is called once at startup of the sketch
+void setup()
+{
+pinMode(LED_BUILTIN, OUTPUT);
+}
+
+// The loop function is called in an endless loop
+void loop()
+{
+// wait for a second
+digitalWrite(LED_BUILTIN, LOW); // turn the LED off by making the voltage LOW
+delay(1000); // wait for a second
+digitalWrite(LED_BUILTIN, HIGH); // turn the LED off by making the voltage LOW
+delay(1000);
+}
+
+7) Make an Arduino test
